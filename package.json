@@ -1,11 +1,11 @@
 {
     "name": "react-native-image-animation",
-        "version": "1.0.2",
-        "description": "A pure js image animation like ios animationImages, support ios and android",
+        "version": "1.0.3",
+        "description": "A pure js image animation like ios animationImages, support iOS and Android",
         "main": "ImageAnimation.js",
         "author": {
-            "name": "YunJiang.Fang",
-            "email": "42550564@qq.com"
+            "name": "Winston.Hsieh",
+            "email": "heretse@gmail.com"
         },
         "license": "MIT",
         "keywords": [
@@ -20,12 +20,12 @@
             "remobile",
             "mobile"
         ],
-        "homepage": "https://github.com/remobile/react-native-image-animation",
+        "homepage": "https://github.com/heretse/react-native-image-animation",
         "bugs": {
-            "url": "https://github.com/remobile/react-native-image-animation/issues"
+            "url": "https://github.com/heretse/react-native-image-animation/issues"
         },
         "repository": {
             "type": "git",
-            "url": "git://github.com/remobile/react-native-image-animation.git"
+            "url": "git://github.com/heretse/react-native-image-animation.git"
         }
 }

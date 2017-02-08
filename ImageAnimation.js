@@ -1,50 +1,46 @@
 /*
 * (The MIT License)
-* Copyright (c) 2015-2016 YunJiang.Fang <42550564@qq.com>
+* Copyright (c) 2017-2018 Winston.Hsieh <heretse@gmail.com>
 */
 'use strict';
 
-var React = require('react-native');
-var {
-    Image,
-    PropTypes,
-} = React;
+import React, { Component } from 'react';
 
-var TimerMixin = require('react-timer-mixin');
+import {
+    Image
+} from 'react-native';
 
-module.exports = React.createClass({
-    propTypes: {
-        animationImages : PropTypes.array.isRequired,
-        animationRepeatCount : PropTypes.number,
-        animationDuration : PropTypes.number,
-    },
-    mixins: [TimerMixin],
-    getInitialState: function() {
-        return {
-            imageIndex: 0,
-        };
-    },
-    componentDidMount: function() {
-        this.animationRepeatCount = this.props.animationRepeatCount||0;
-        this.intervalId = this.setInterval(
-            ()=>{
-                var imageIndex = this.state.imageIndex+1;
-                if (imageIndex >= this.props.animationImages.length) {
-                    imageIndex = 0;
-                    if (this.animationRepeatCount === 1) {
-                        this.clearInterval(this.intervalId);
-                        return;
-                    }
-                    this.animationRepeatCount--;
+import TimerMixin from 'react-timer-mixin';
+
+export class ImageAnimation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {imageIndex: 0};
+    this.animationRepeatCount = props.animationRepeatCount||0;
+    
+    this.intervalId = setInterval(
+        () => {
+            var imageIndex = this.state.imageIndex+1;
+            if (imageIndex >= props.animationImages.length) {
+                imageIndex = 0;
+                if (this.animationRepeatCount === 1) {
+                  clearInterval(this.intervalId);
+                  props.onTimeout();
+                  return;
                 }
-                this.setState({imageIndex:imageIndex})
-            }, this.props.animationDuration||1000);
-        },
-        render: function() {
-            return (
-                <Image
-                    {...this.props}
-                    source={this.props.animationImages[this.state.imageIndex]}/>
-            );
-        }
-    });
+                this.animationRepeatCount--;
+            }
+            this.setState({imageIndex:imageIndex})
+        }, props.animationDuration||1000);
+  }
+  
+  render() {
+    return (<Image
+              {...this.props}
+              source={this.props.animationImages[this.state.imageIndex]}/>);
+  }
+  
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+}
