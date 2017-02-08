@@ -4,7 +4,7 @@
 */
 'use strict';
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import {
     Image
@@ -13,6 +13,13 @@ import {
 import TimerMixin from 'react-timer-mixin';
 
 export class ImageAnimation extends Component {
+  static propTypes = {
+    animationRepeatCount: PropTypes.number,
+    animationDuration: PropTypes.number,
+    animationImages: PropTypes.array.isRequired,
+    onTimeout: PropTypes.func
+  }
+  
   constructor(props) {
     super(props);
     this.state = {imageIndex: 0};
