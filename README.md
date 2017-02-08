@@ -1,5 +1,5 @@
 # React Native ImageAnimation
-A pure js image animation like ios animationImages, support ios and android
+A pure js image animation like ios animationImages, support iOS and Android
 
 ## Installation
 ```sh
@@ -10,6 +10,10 @@ npm install react-native-image-animation --save
 
 ### Example
 ```js
+import { ImageAnimation } from 'ImageAnimation';
+
+...
+
 var imageView = <ImageAnimation
                     ref={() => this._powerBtn = this}
                     resizeMode='stretch'
