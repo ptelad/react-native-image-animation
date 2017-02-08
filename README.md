@@ -40,7 +40,7 @@ var imageView = <ImageAnimation
 
 ## Screencasts
 
-![loading](https://github.com/remobile/react-native-image-animation/blob/master/screencasts/loading.gif)
+![loading](https://github.com/heretse/react-native-image-animation/blob/master/screencasts/loading.gif)
 
 #### Props
 This module supports react-native Image's props all.
