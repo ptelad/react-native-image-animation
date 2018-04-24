@@ -4,15 +4,16 @@
 */
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactMixin from 'react-mixin';
 import {
     Image
 } from 'react-native';
 
 import TimerMixin from 'react-timer-mixin';
 
-export class ImageAnimation extends Component {
+class ImageAnimation extends Component {
   static propTypes = {
     animationRepeatCount: PropTypes.number,
     animationDuration: PropTypes.number,
@@ -51,3 +52,7 @@ export class ImageAnimation extends Component {
     clearInterval(this.intervalId);
   }
 }
+
+ReactMixin(ImageAnimation.prototype, TimerMixin);
+
+export default ImageAnimation;
